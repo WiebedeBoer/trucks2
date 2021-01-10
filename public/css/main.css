@@ -1,0 +1,605 @@
+@font-face {font-family: 'BedaFont'; src: url('../fonts/JMH_Beda.ttf') format('truetype'); font-weight: normal; font-style: normal;}
+
+body, body.body-cards {
+    background-color:#d0c8b0;
+    color: #636b6f;
+    font-family: "Bedafont", Georgia;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+
+body, body.forum-cards {
+    background-color:#d0c8b0;
+    color: #636b6f;
+    font-family: "Bedafont", Georgia;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+
+body.news-cards,body.manual-cards {
+    background-color:#ebd5b3;
+    color: #636b6f;
+    font-family: Georgia;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+
+/*main welcome*/
+
+.main-welcome {
+	background-image: url("../img/medieval_castle.png");
+	background-position: center; 
+    background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.main-links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/*main content*/
+
+.white-nav {
+	background-color:#ffffff;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-left {
+    position: absolute;
+    left: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+	text-shadow: 2px 2px #ffff00;
+}
+
+.news-content {
+    text-align: left;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.footer {
+	position: absolute;
+    bottom: 40px;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+/*game-text*/
+h1,h2.c,p.c {
+	text-align: center;
+}
+
+h2.m {
+	text-align: center;
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+	border-color: #c0c0c0;
+	background-color:#f0f0f0;
+}
+
+/*game menu*/
+.game-menu{
+	width: 100%;
+    height: auto;
+	background-color:#ebd5b3;
+	text-align: center;
+}
+
+.map-menu{
+	width: 100%;
+    height: auto;
+	text-align: center;
+}
+
+/*worldmap*/
+.worldmap {
+    width: 100%;
+    height: auto;
+}
+
+.wmin {
+    width: 100%;
+    min-height: 600px;
+}
+
+.wml{
+	display:inline-block;
+	padding: 3px;
+	margin:3px;
+	min-width:200px;
+	height:auto;
+	border-width:2px;
+	border-style:solid;
+	border-color:#636b6f;
+	border-radius:5px;
+	background-color: #ebd5b3;
+	box-shadow: 3px 3px;	
+}
+
+.wmli{
+	text-align:left;
+	display:inline-block;
+	padding:3px;
+	margin:3px;
+	width:440px;
+	height:70px;
+	border-width:2px;
+	border-style:solid;
+	border-color:#636b6f;
+	border-radius:4px;
+	background-color: #ffffff;
+	box-shadow: 3px 3px;	
+}
+
+.wmlink {
+	color: #636b6f;
+	padding: 0 25px;
+	min-height:48px;
+	width:450px;
+	margin:3px;
+	font-size: 1.25em;
+	font-weight: 600;
+	letter-spacing: .1rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	background-color: #ffffff;
+	border-color: #343a40;
+	border-width:2px;
+	box-shadow: 3px 3px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	user-select: none;
+	border: 1px solid transparent;
+	line-height: 1.5;
+    border-radius: .25rem;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	box-sizing: border-box;
+}
+
+.plw{
+	padding: 3px;
+	margin:5px;
+	min-width:200px;
+	height:auto;
+	border-width:2px;
+	border-style:solid;
+	border-color:#636b6f;
+	border-radius:5px;
+	background-color: #ffffff;
+	box-shadow: 3px 3px;	
+}
+
+/*dynasty crests*/
+.crest{
+	position:relative;
+	width:100px;
+	height:100px;
+	margin:8px;
+}
+
+.crestup {
+	position:absolute;
+	width:100px;
+	height:100px;	
+}
+
+.crestlow {
+	position:absolute;
+	width:100px;
+	height:100px;	
+}
+
+.crestback{
+	position:relative;
+	left: 0px;
+	top: 0px;
+	z-index:3;
+	border-width:2px;
+	border-style:solid;
+	border-color:#636b6f;
+	border-bottom-right-radius: 45px 40px;
+	border-bottom-left-radius: 45px 40px;
+}
+
+.crestemblem {
+	position:relative;
+	left: 0px;
+	top: 0px;
+	z-index:5;
+	border-width:2px;
+	border-style:solid;
+	border-color:#636b6f;
+	border-bottom-right-radius: 45px 40px;
+	border-bottom-left-radius: 45px 40px;
+}
+
+.crestbackround{
+	position:relative;
+	left: 0px;
+	top: 0px;
+	z-index:3;
+	border-width:2px;
+	border-style:solid;
+	border-color:#636b6f;
+	border-radius: 50px;
+}
+
+.crestemblemround {
+	position:relative;
+	left: 0px;
+	top: 0px;
+	z-index:5;
+	border-width:2px;
+	border-style:solid;
+	border-color:#636b6f;
+	border-radius: 50px;
+
+}
+
+/*culture religion*/
+.crb{
+	display:inline-block;
+	padding: 3px;
+	margin:5px;
+	width:auto;
+	height:auto;
+	border-width:2px;
+	border-style:solid;
+	border-color:#636b6f;
+	border-radius:5px;
+	background-color: #ffffff;
+	box-shadow: 3px 3px;	
+}
+
+/*table image*/
+.tbi {
+	border-width:2px;
+	border-style:solid;
+	border-color:#636b6f;
+	border-radius:3px;
+	padding:6px;
+	background-color: #ffffff;
+	box-shadow: 2px 2px;
+}
+
+/*population*/
+td.rimetro {
+	text-align:right;
+	font-size: 1.5em;
+	padding: 3px;
+	color:#00ff00;
+	text-shadow: 2px 2px #000000;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+td.ricity {
+	text-align:right;
+	font-size: 1.5em;
+	padding: 3px;
+	color:#ffff00;
+	text-shadow: 2px 2px #000000;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+td.ritown {
+	text-align:right;
+	font-size: 1.5em;
+	padding: 3px;
+	color:#ffcc00;
+	text-shadow: 2px 2px #000000;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+td.rivillage {
+	text-align:right;
+	font-size: 1.5em;
+	padding: 3px;
+	color:#ff0000;
+	text-shadow: 2px 2px #000000;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+td.rihamlet {
+	text-align:right;
+	font-size: 1.5em;
+	padding: 3px;
+	color:#cc0000;
+	text-shadow: 2px 2px #000000;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+/*game table*/
+td.ri {
+	text-align:right;
+	padding: 3px;
+}
+
+td.plname {
+	text-align:left;
+	padding: 3px;	
+	font-size: 1.2em;
+}
+
+td.pl {
+	text-align:left;
+	padding: 3px;	
+}
+
+td.plp {
+	text-align:left;
+	padding: 3px;
+	background-color:#6a644f;	
+}
+
+th.cg {
+	text-align:center;
+	color: #fdfdfd;
+	background-color:#a0a0a0;
+}
+
+th.lg {
+	text-align:left;
+	color: #fdfdfd;
+	background-color:#a0a0a0;
+}
+
+/*guild category columns*/
+td.league {
+	text-align:left;
+	padding: 3px;
+	background-color:rgb(240,163,10);	
+}
+td.fair {
+	text-align:left;
+	padding: 3px;
+	background-color:rgb(255,255,136);	
+}
+td.merchant {
+	text-align:left;
+	padding: 3px;
+	background-color:rgb(255,242,204);	
+}
+td.monastic {
+	text-align:left;
+	padding: 3px;
+	background-color:rgb(218,232,252);	
+}
+td.pilgrim {
+	text-align:left;
+	padding: 3px;
+	background-color:rgb(225,213,231);	
+}
+td.chivalric {
+	text-align:left;
+	padding: 3px;
+	background-color:rgb(248,206,204);	
+}
+td.crusader {
+	text-align:left;
+	padding: 3px;
+	background-color:rgb(216,0,115);	
+}
+
+/*manual table*/
+td.u {
+    padding: 3px;
+    font-size: 1em;
+    background-color: #cccccc;
+}
+
+td.ge {
+    padding: 3px;
+    font-size: 1em;
+    background-color: #f8cecc;
+}
+
+td.cl {
+    padding: 3px;
+    font-size: 1em;
+    background-color: #e1d5e7;
+}
+
+td.mo {
+    padding: 3px;
+    font-size: 1em;
+    background-color: #dae8fc;
+}
+
+td.co {
+    padding: 3px;
+    font-size: 1em;
+	color: #fdfdfd;
+    background-color: #a20025;
+}
+
+td.na {
+    padding: 3px;
+    font-size: 1em;
+	color: #fdfdfd;
+    background-color: #1d1c73;
+}
+
+td.he {
+    padding: 3px;
+    font-size: 1em;
+	color: #202020;
+    background-color: #34f0f7;
+}
+
+td.ju {
+    padding: 3px;
+    font-size: 1em;
+	color: #fdfdfd;
+    background-color: #733ea0;
+}
+
+td.ca {
+    padding: 3px;
+    font-size: 1em;
+	color: #fdfdfd;
+    background-color: #8b4513;
+}
+
+td.cr {
+    padding: 3px;
+    font-size: 1em;
+	color: #fdfdfd;
+    background-color: #d80073;
+}
+
+td.sr {
+    padding: 3px;
+    font-size: 1em;
+    background-color: #ffe6cc;
+}
+
+td.bu {
+    padding: 3px;
+    font-size: 1em;
+    background-color: #ffe6cc;
+}
+
+td.pu {
+    padding: 3px;
+    font-size: 1em;
+    background-color: #f0a30a;
+}
+
+td.pe {
+    padding: 3px;
+    font-size: 1em;
+    background-color: #d5e8d4;
+}
+
+td.se {
+    padding: 3px;
+    font-size: 1em;
+    background-color: #4e784e;
+}
+
+td.r {
+	text-align:right;
+}
+
+th.c {
+	text-align:center;
+	color: #fdfdfd;
+	background-color:#a0a0a0;
+}
+
+th.mc {
+	text-align:center;
+	color: #fdfdfd;
+	background-color:#202020;
+}
+
+th.l {
+	text-align:left;
+	color: #fdfdfd;
+	background-color:#a0a0a0;
+}
+
+th.ma {
+	text-align:left;
+	color: #fdfdfd;
+	background-color:#202020;
+}
+
+/*show mini map*/
+
+.minishow {
+	width:100%;
+	height:500px;
+}
+
+.inlinepart {
+	width: 500px;
+	height: 500px;
+	display:inline-block;	
+}
+
+.minitable {
+    width: 490px;
+	height: 490px;	
+}
+
+.parentmini {
+	width: 490px;
+	height: 490px;
+	position:relative;
+	left: 0px;
+	top: 0px;
+}
+
+.canvasmini {
+	z-index:3;
+	position:relative;
+	left: 0px;
+	top: 0px;
+	width: 490px;
+    height: 490px;
+}
+
+.quartermap {
+    width: 490px;
+    height: 490px;
+}
+
+.quartermini {
+	z-index:5;
+	position:absolute;
+	left: 0px;
+	top: 0px;
+	opacity: 0.5;
+	width: 490px;
+    height: 490px;
+	border:1px solid #d3d3d3;
+}
