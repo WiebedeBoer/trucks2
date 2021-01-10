@@ -20,7 +20,24 @@ class RegionController extends Controller
     public function show($id)
     { 
         $region = Region::with('categories')->where('region_id', $id)->firstOrFail(); 
-        return view('regions.show', compact('region'));
+        $categories = RegionCategory::all(); 
+        $hierarchy_count = Hierarchy::where('lower',$id)->count();
+        if($hierarchy_count >=1){
+            $truck_count =0;
+            $hierarchies = Hierarchy::with('lowers')->where('lower',$id)->paginate(50);
+            $trucks =[];
+        }
+        else {
+            $truck_count = Truck::where('region',$id)->count();
+            if($truck_count >=1){
+                $trucks = Truck::with('categories','photos')->where('region',$id)->paginate(50);
+            }
+            else {
+                $trucks =[];
+            } 
+            $hierarchies =[];
+        }
+        return view('regions.show', compact('region','categories','hierarchy_count','hierarchies','truck_count','trucks'));
     }
 
 	//edit
@@ -28,7 +45,23 @@ class RegionController extends Controller
     {  
         $region = Region::with('categories')->where('region_id', $id)->firstOrFail(); 
         $categories = RegionCategory::all(); 
-        return view('regions.edit', compact('region','categories'));
+        $hierarchy_count = Hierarchy::where('lower',$id)->count();
+        if($hierarchy_count >=1){
+            $truck_count =0;
+            $hierarchies = Hierarchy::with('lowers')->where('lower',$id)->paginate(50);
+            $trucks =[];
+        }
+        else {
+            $truck_count = Truck::where('region',$id)->count();
+            if($truck_count >=1){
+                $trucks = Truck::with('categories','photos')->where('region',$id)->paginate(50);
+            }
+            else {
+                $trucks =[];
+            } 
+            $hierarchies =[];
+        }
+        return view('regions.edit', compact('region','categories','hierarchy_count','hierarchies','truck_count','trucks'));
     }
 
 	//create

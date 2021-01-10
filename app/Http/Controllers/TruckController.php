@@ -12,7 +12,7 @@ class truckController extends Controller
 	//index 
     public function index()
     {            	
-        $trucks = Truck::paginate(50);  
+        $trucks = Truck::with('categories')->paginate(50);  
         return view('objecten.index', compact('trucks'));    
     }
 	  
@@ -20,15 +20,31 @@ class truckController extends Controller
     public function show($id)
     { 
         $truck = Truck::with('categories')->where('truck_id', $id)->firstOrFail(); 
-        return view('objecten.show', compact('truck'));
+        $categories = Category::all(); 
+        $photo_count = Photo::where('truck', $id)->count(); 
+        if($photo_count >=1){
+            $photos = Photo::with('trucks')->where('truck', $id)->get(); 
+        }
+        else{
+            $photos =[];
+        }
+        
+        return view('objecten.show', compact('truck','categories','photo_count','photos'));
     }
 
 	//edit
     public function edit($id)
     {  
         $truck = Truck::with('categories')->where('truck_id', $id)->firstOrFail(); 
-        $categories = Category::all();  
-        return view('objecten.edit', compact('truck','categories'));
+        $categories = Category::all(); 
+        $photo_count = Photo::where('truck', $id)->count(); 
+        if($photo_count >=1){
+            $photos = Photo::with('trucks')->where('truck', $id)->get(); 
+        }
+        else{
+            $photos =[];
+        } 
+        return view('objecten.edit', compact('truck','categories','photo_count','photos'));
     }
 
 	//create

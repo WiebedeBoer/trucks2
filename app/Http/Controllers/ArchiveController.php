@@ -20,15 +20,28 @@ class ArchiveController extends Controller
     public function show($id)
     { 
         $archive = Archive::with('categories')->where('archive_id', $id)->firstOrFail(); 
-        return view('archive.show', compact('archive'));
+        $region_count = Region::where('archive', $id)->count();
+        if($region_count >=1){
+            $regions = Region::with('categories','trucks')->where('archive', $id)->paginate(50);
+        }
+        else {
+            $regions =[];
+        }   
+        return view('archive.show', compact('archive','region_count','regions'));
     }
 
 	//edit
     public function edit($id)
     {  
         $archive = Archive::with('categories')->where('archive_id', $id)->firstOrFail(); 
-        $categories = ArchiveCategory::all();  
-        return view('archive.edit', compact('archive','categories'));
+        $region_count = Region::where('archive', $id)->count();
+        if($region_count >=1){
+            $regions = Region::with('categories','trucks')->where('archive', $id)->paginate(50);
+        }
+        else {
+            $regions =[];
+        }   
+        return view('archive.edit', compact('archive','region_count','regions'));
     }
 
 	//create
