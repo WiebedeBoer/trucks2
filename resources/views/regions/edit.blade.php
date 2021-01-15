@@ -4,6 +4,8 @@ Onserfgoed
 @endsection
 @section('content')
 
+@include('regions.breadcrumb')
+
 <form method="POST" action="/region/{{ $region->region_id }}" class="pb-3">
 @method('PATCH')
 

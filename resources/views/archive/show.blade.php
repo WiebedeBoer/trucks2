@@ -4,7 +4,7 @@ Onserfgoed - Archief
 @endsection
 @section('content')
 
-
+@include('archive.breadcrumb')
 
 @if(region_count >=1)
 {{ $regions->links() }}

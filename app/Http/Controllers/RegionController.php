@@ -37,7 +37,7 @@ class RegionController extends Controller
             } 
             $hierarchies =[];
         }
-        return view('regions.show', compact('region','categories','hierarchy_count','hierarchies','truck_count','trucks'));
+        return view('regions.show', compact('region','categories','hierarchy_count','hierarchies','truck_count','trucks','hierarchy','upper_region','archive'));
     }
 
 	//edit
@@ -50,6 +50,10 @@ class RegionController extends Controller
             $truck_count =0;
             $hierarchies = Hierarchy::with('lowers')->where('lower',$id)->paginate(50);
             $trucks =[];
+
+            $hierarchy = Hierarchy::where('lower',$region->region_id)->first();
+            $upper_region = Region::with('categories')->where('region_id', $hierarchy->upper)->first();
+            $archive = Archive::where('archive_id',$upper_region->archive)->first();
         }
         else {
             $truck_count = Truck::where('region',$id)->count();
@@ -60,8 +64,13 @@ class RegionController extends Controller
                 $trucks =[];
             } 
             $hierarchies =[];
+
+            $hierarchy =NULL;
+            $upper_region =NULL;
+            $archive = Archive::where('archive_id',$region->archive)->first();
         }
-        return view('regions.edit', compact('region','categories','hierarchy_count','hierarchies','truck_count','trucks'));
+
+        return view('regions.edit', compact('region','categories','hierarchy_count','hierarchies','truck_count','trucks','hierarchy','upper_region','archive'));
     }
 
 	//create

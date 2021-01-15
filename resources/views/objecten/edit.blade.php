@@ -4,6 +4,8 @@ Onserfgoed
 @endsection
 @section('content')
 
+@include('objecten.breadcrumb')
+
 <form method="POST" action="/objecten/{{ $truck->truck_id }}" class="pb-3">
 @method('PATCH')
 

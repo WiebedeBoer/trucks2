@@ -4,6 +4,8 @@ Onserfgoed
 @endsection
 @section('content')
 
+@include('objecten.breadcrumb')
+
 {{$truck->truck_name}}
 
 {{$truck->description}}

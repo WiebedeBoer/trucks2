@@ -28,8 +28,20 @@ class truckController extends Controller
         else{
             $photos =[];
         }
-        
-        return view('objecten.show', compact('truck','categories','photo_count','photos'));
+        $region = Region::with('categories')->where('region_id', $truck->region)->firstOrFail();
+        $hierarchy_count = Hierarchy::where('lower',$region->region_id)->count();
+        if($hierarchy_count >=1){
+            $hierarchy = Hierarchy::where('lower',$region->region_id)->first();
+            $upper_region = Region::with('categories')->where('region_id', $hierarchy->upper)->first();
+            $archive = Archive::where('archive_id',$upper_region->archive)->first();
+        }
+        else {
+            $hierarchy =[];
+            $upper_region = [];
+            $archive = Archive::where('archive_id',$region->archive)->first();
+        }
+        //return
+        return view('objecten.show', compact('truck','categories','photo_count','photos','region','hierarchy_count','hierarchy','upper_region','archive'));
     }
 
 	//edit
@@ -44,7 +56,20 @@ class truckController extends Controller
         else{
             $photos =[];
         } 
-        return view('objecten.edit', compact('truck','categories','photo_count','photos'));
+        $region = Region::with('categories')->where('region_id', $truck->region)->firstOrFail();
+        $hierarchy_count = Hierarchy::where('lower',$region->region_id)->count();
+        if($hierarchy_count >=1){
+            $hierarchy = Hierarchy::where('lower',$region->region_id)->first();
+            $upper_region = Region::with('categories')->where('region_id', $hierarchy->upper)->first();
+            $archive = Archive::where('archive_id',$upper_region->archive)->first();
+        }
+        else {
+            $hierarchy =NULL;
+            $upper_region =NULL;
+            $archive = Archive::where('archive_id',$region->archive)->first();
+        }
+        //return
+        return view('objecten.edit', compact('truck','categories','photo_count','photos','region','hierarchy_count','hierarchy','upper_region','archive'));
     }
 
 	//create

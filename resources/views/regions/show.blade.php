@@ -4,6 +4,8 @@ Onserfgoed
 @endsection
 @section('content')
 
+@include('regions.breadcrumb')
+
 @if($hierarchy_count >=1)
 {{ $hierarchies->links() }}
 <table id="myTable" class="tablesorter table table-striped">

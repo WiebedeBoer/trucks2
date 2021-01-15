@@ -4,6 +4,8 @@ Onserfgoed - Archief
 @endsection
 @section('content')
 
+@include('archive.breadcrumb')
+
 <form method="POST" action="/archive" class="pb-3">
 @method('PATCH')
 
